@@ -252,10 +252,11 @@
         newCaptcha();
         return;
       }
-      document.getElementById('registerError').textContent='Transaction not found.';
+      document.getElementById('registerError').textContent='Transaction not found:insufficient deposit.';
       document.getElementById('registerSuccess').textContent='';
       newCaptcha();
     });
   </script>
 </body>
+
 </html>

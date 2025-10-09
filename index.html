@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CVV-WRLD • Login & Register</title>
+  <title>CVVWRLD • Login & Register</title>
   <style>
     :root{
       --bg:#121212;
@@ -17,20 +17,20 @@
       --ring:#444;
       --input:#1a1a1a;
       --input-border:#333;
-      --shadow:0 1px 10px rgba(0,0,0,.45);
+      --shadow:0 6px 16px rgba(0,0,0,.45);
     }
     body{
       margin:0; background:var(--bg);
       font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial;
       color:var(--text);
       display:flex; flex-direction:column; align-items:center; justify-content:center;
-      min-height:100vh; padding:20px;
+      min-height:100vh; padding:12px;
     }
 
     /* Logo */
     .logo-text{
-      font-size:26px; font-weight:800; letter-spacing:2px;
-      margin-bottom:10px; text-align:center;
+      font-size:24px; font-weight:800; letter-spacing:2px;
+      margin-bottom:12px; text-align:center;
       background:linear-gradient(90deg,
         #ffb0b0,#ffd9b0,#ffffb0,#b0ffd9,#b0d9ff,#d9b0ff,#ffb0e0
       );
@@ -40,26 +40,29 @@
       animation:scrollGradientX 8s linear infinite;
     }
 
-   /* Card */
+    /* Card container */
     .card{
-      width:min(640px,95%);
+      width:95%;
+      max-width:640px;          /* tighter width */
       background:var(--card);
-      border:0.5px solid rgba(255,255,255,.06);
+      border:0.5px solid rgba(255,255,255,.08);
       border-radius:10px;
       box-shadow:var(--shadow);
-      display:grid;
-      grid-template-columns:1fr 1fr;
+      display:flex;
+      flex-direction:row;
       overflow:hidden;
     }
-    @media(max-width:720px){.card{grid-template-columns:1fr}.side{display:none}}
+    @media(max-width:768px){
+      .card{flex-direction:column} /* stack vertically on small screens */
+    }
 
-    .side{padding:16px; display:flex; flex-direction:column; gap:6px}
+    .side{padding:16px; flex:1}
     .side h1{margin:0; font-size:18px}
     .side p{margin:0; color:var(--muted); font-size:13px}
-    .content{padding:14px 16px; display:flex; flex-direction:column; gap:10px}
+    .content{padding:16px; flex:1; display:flex; flex-direction:column; gap:10px}
 
     /* Tabs */
-    .tabs{display:flex; gap:8px; justify-content:center; margin-bottom:4px;}
+    .tabs{display:flex; gap:8px; justify-content:center; margin-bottom:6px;}
     .tab{
       border:1px solid var(--input-border);
       background:var(--input);
@@ -72,14 +75,15 @@
       background:var(--card); color:var(--text); outline:1px solid var(--ring);
     }
 
-    form{display:grid; gap:8px}
+    form{display:grid; gap:10px}
     label{font-size:12px; color:var(--muted); margin-bottom:2px}
     .field{display:flex; flex-direction:column}
     .control{display:flex; align-items:center; gap:8px; background:var(--input); border:1px solid var(--input-border); border-radius:6px; padding:8px 10px}
-    input[type="text"],input[type="password"],input[type="number"]{background:transparent; border:0; color:var(--text); width:100%; font-size:14px; outline:0}
-    .muted{color:var(--muted); font-size:12px}
+    input[type="text"],input[type="password"],input[type="number"]{
+      background:transparent; border:0; color:var(--text); width:100%; font-size:14px; outline:0;
+    }
     .actions{display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:4px}
-    .btn{border:0; padding:8px 12px; border-radius:6px; font-weight:700; cursor:pointer; font-size:14px}
+    .btn{border:0; padding:9px 13px; border-radius:6px; font-weight:700; cursor:pointer; font-size:14px}
     .btn-primary{background:linear-gradient(180deg,var(--brand),var(--brand-2)); color:#000}
     .btn-ghost{background:transparent; color:var(--muted); font-size:13px}
     .error{color:var(--err); font-size:12px; min-height:14px}
@@ -88,7 +92,7 @@
 
     /* Tip */
     #register-tip{
-      margin-top:15px;   /* 👈 pushes it a couple lines lower */
+      margin-top:14px; /* extra spacing under welcome */
       padding:8px 10px 8px 12px;
       background:rgba(255,255,255,0.04);
       border-radius:5px;
@@ -106,6 +110,7 @@
       background-size:100% 300%;
       animation:scrollGradient 8s linear infinite;
     }
+
     @keyframes scrollGradient {0%{background-position:0 0}100%{background-position:0 100%}}@keyframes scrollGradientX {0%{background-position:0 0}100%{background-position:300% 0}}
     #register-tip[hidden]{display:none}
   </style>
@@ -113,7 +118,7 @@
 <body>
   <div class="logo-text">[CVV-WRLD]</div>
 
-  <main class="card" role="main">
+  <main class="card">
     <aside class="side">
       <div>
         <h1>Welcome 👋</h1>
@@ -137,12 +142,12 @@
         <form id="loginForm">
           <div class="field">
             <label for="login-username">Username</label>
-            <div class="control"><input id="login-username" name="username" type="text" placeholder="username" required /></div>
+            <div class="control"><input id="login-username" type="text" placeholder="username" required /></div>
           </div>
           <div class="field">
             <label for="login-password">Password</label>
             <div class="control">
-              <input id="login-password" name="password" type="password" minlength="8" placeholder="password" required />
+              <input id="login-password" type="password" minlength="8" placeholder="password" required />
               <button type="button" class="showpw" data-target="login-password">Show</button>
             </div>
           </div>
@@ -150,8 +155,6 @@
             <label><input type="checkbox" /> Remember me</label>
             <button class="btn btn-primary" type="submit">Sign in</button>
           </div>
-          <div class="error" id="loginError"></div>
-          <div class="success" id="loginSuccess"></div>
         </form>
       </section>
 
@@ -160,17 +163,17 @@
         <form id="registerForm">
           <div class="field">
             <label for="reg-username">Username</label>
-            <div class="control"><input id="reg-username" name="username" type="text" placeholder="username" required /></div>
+            <div class="control"><input id="reg-username" type="text" placeholder="username" required /></div>
           </div>
           <div class="field">
             <label for="reg-password">Password</label>
             <div class="control">
-              <input id="reg-password" name="password" type="password" minlength="8" placeholder="password" required />
+              <input id="reg-password" type="password" minlength="8" placeholder="password" required />
               <button type="button" class="showpw" data-target="reg-password">Show</button>
             </div>
           </div>
           <div class="field">
-            <label for="btc-address">BTC Deposit Address</label>
+            <label for="btc-address">BTC Address</label>
             <div class="control">
               <input id="btc-address" type="text" value="bc1q3mmz39lze5yrar856zgazpa8vrhkur6nmz9v3l" readonly />
               <button type="button" class="btn btn-ghost" id="copy-btc">Copy</button>
@@ -178,15 +181,13 @@
           </div>
           <div class="field">
             <label for="txid">Transaction ID (TXID)</label>
-            <div class="control"><input id="txid" name="txid" type="text" placeholder="ID" /></div>
+            <div class="control"><input id="txid" type="text" placeholder="TXID" /></div>
           </div>
           <div class="field">
-            <label for="captcha-input">verify you’re human</label>
+            <label for="captcha-input">Prove you’re human</label>
             <div id="captcha-problem" class="muted"></div>
             <div class="control"><input id="captcha-input" type="number" placeholder="answer" required /></div>
           </div>
-          <div class="error" id="registerError"></div>
-          <div class="success" id="registerSuccess"></div>
           <div class="actions">
             <button class="btn btn-primary" type="submit">Create account</button>
             <button class="btn btn-ghost" type="button" data-switch="login">I already have an account</button>
@@ -201,7 +202,8 @@
     const panels={login:document.getElementById('panel-login'), register:document.getElementById('panel-register')};
     const tip=document.getElementById('register-tip');
     function switchTo(which){
-      const isLogin=which==='login';tabs.forEach(t=>t.setAttribute('aria-selected',t.id==='tab-'+which?'true':'false'));
+      const isLogin=which==='login';
+      tabs.forEach(t=>t.setAttribute('aria-selected',t.id==='tab-'+which?'true':'false'));
       panels.login.hidden=!isLogin;
       panels.register.hidden=isLogin;
       tip.hidden=which!=='register';
@@ -231,45 +233,6 @@
       document.getElementById('captcha-input').value='';
     }
     newCaptcha();
-
-    document.getElementById('loginForm').addEventListener('submit',e=>{
-      e.preventDefault();
-      document.getElementById('loginSuccess').textContent='Submitted!';
-    });
-
-    document.getElementById('registerForm').addEventListener('submit',e=>{
-      e.preventDefault();
-      const password=document.getElementById('reg-password').value;
-      const passRegex=/^(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
-      if(!passRegex.test(password)){
-        document.getElementById('registerError').textContent='Password must be at least 8 characters, include an uppercase letter and a number.';
-        document.getElementById('registerSuccess').textContent='';
-        return;
-      }
-      if(Number(document.getElementById('captcha-input').value)!==answer){
-        document.getElementById('registerError').textContent='CAPTCHA incorrect';
-        document.getElementById('registerSuccess').textContent='';
-        newCaptcha();
-        return;
-      }
-      document.getElementById('registerError').textContent='Transaction not found:insufficient deposit.';
-      document.getElementById('registerSuccess').textContent='';
-      newCaptcha();
-    });
   </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

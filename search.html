@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>[CVV-WRLD] • Catalog — Detailed List</title>
+<title>[CVV-WRLD] • Catalog</title>
 <style>
   :root{
     --bg:#0f0f10;
@@ -103,7 +103,7 @@
       <div class="brand">
         <button id="menuBtn" class="btn btn-ghost">☰</button>
         <div class="logo">[CVV-WRLD]</div>
-        <div class="small muted">Catalog — Detailed List</div>
+        <div class="small muted">Catalog</div>
       </div>
 
       <div style="display:flex;align-items:center;gap:12px;">
@@ -155,17 +155,17 @@
           <label class="small muted">Bin (partial or full)</label>
           <input id="filterBin" type="text" placeholder="e.g. 5416 or 541625" />
 
-          <label style="margin-top:8px"><input id="filterTest" type="checkbox" /> <span class="small muted">Test</span></label>
+          <label style="margin-top:8px"><input id="filterTest" type="checkbox" /> <span class="small muted">NON-VBV</span></label>
           <button id="applyFilters" class="btn btn-primary">Apply</button>
           <button id="clearFilters" class="btn btn-ghost">Clear</button>
         </div>
       </div>
 
       <div style="margin-top:16px" class="menu-section">
-        <div class="menu-title">Account</div>
-        <a class="menu-item" href="#">Billing</a>
-        <a class="menu-item" href="#">Support</a>
-        <a class="menu-item" href="#">Settings</a>
+        <div class="menu-title">.</div>
+        <a class="menu-item" href="#"></a>
+        <a class="menu-item" href="#"></a>
+        <a class="menu-item" href="#"></a>
       </div>
     </aside>
 
@@ -192,14 +192,14 @@
 /* Sample items — lawful placeholder data fields.
    Added 'bin' and 'state' fields so filter works as requested. */
 const ITEMS = [
-  { id:'541625', bin:'541625', type:'CREDIT', subtype:'STANDARD', expiry:'06/31', name:'David Leiva', country:'ES', state:'-', fullAddress:true, zip:'12**', extra:'Phone, Email', bank:'Caja', base:'1015', price:38.85, test:false },
-  { id:'483741', bin:'483741', type:'DEBIT', subtype:'CLASSIC', expiry:'09/28', name:'Tom', country:'AU', state:'-', fullAddress:true, zip:'06**', extra:'Phone, Email', bank:'KwikBank', base:'1016', price:38.85, test:true },
-  { id:'476664', bin:'476664', type:'DEBIT', subtype:'ELECTRON', expiry:'03/31', name:'Jordi Garcia', country:'ES', state:'-', fullAddress:true, zip:'08**', extra:'Phone, Email', bank:'CajaBank', base:'1017', price:38.85, test:false },
-  { id:'525363', bin:'525363', type:'CREDIT', subtype:'PLATINUM', expiry:'08/28', name:'Jiayi', country:'US', state:'MO', fullAddress:true, zip:'63**', extra:'Phone', bank:'EuroPay', base:'1018', price:38.85, test:true },
-  { id:'514230', bin:'514230', type:'DEBIT', subtype:'STANDARD', expiry:'02/28', name:'Clifford Conley', country:'US', state:'MS', fullAddress:true, zip:'38**', extra:'Phone', bank:'Woodforest', base:'1019', price:23.10, test:false },
-  { id:'472409', bin:'472409', type:'DEBIT', subtype:'CLASSIC', expiry:'04/29', name:'Yi Hsuan', country:'CA', state:'ON', fullAddress:true, zip:'M5**', extra:'Phone', bank:'N/A', base:'1020', price:33.60, test:false },
-  { id:'377481', bin:'377481', type:'CREDIT', subtype:'N/A', expiry:'03/26', name:'Dawn', country:'US', state:'NC', fullAddress:true, zip:'27**', extra:'Phone', bank:'Macy\'s', base:'1021', price:23.10, test:false },
-  { id:'461755', bin:'461755', type:'CREDIT', subtype:'PLATINUM', expiry:'11/27', name:'Lisa', country:'AU', state:'-', fullAddress:true, zip:'06**', extra:'Phone', bank:'ASB', base:'1022', price:42.00, test:false },
+  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'06/31', name:'David ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone, Email', bank:'ING BANK (AU)', base:'1015', price:9.99, test:false },
+  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'09/28', name:'Tom ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone, Email', bank:'ING BANK (AU)', base:'1016', price:9.99, test:false },
+  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'03/31', name:'Jordi ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone, Email', bank:'ING BANK (AU)', base:'1016', price:9.99, test:false },
+  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'08/28', name:'Jiayi ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone', bank:'ING BANK (AU)', base:'1015', price:9.99, test:false },
+  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'02/28', name:'Clifford ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone', bank:'ING BANK (AU)', base:'1010', price:9.99, test:false },
+  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'04/29', name:'Cynthis ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone', bank:'N/ING BANK (AU)', base:'1012', price:9.99, test:false },
+  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'03/26', name:'Mary ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone', bank:'ING BANK (AU)', base:'1014', price:9.99, test:false },
+  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'11/27', name:'Mark ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone', bank:'ING BANK (AU)', base:'1015', price:9.99, test:false },
   // add more items as needed...
 ];
 

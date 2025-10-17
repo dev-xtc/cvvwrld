@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>[CVV-WRLD] • Catalog — Detailed List</title>
+<style>
+  :root{
+    --bg:#0f0f10;
+    --surface:#171717;
+    --card:#1c1c1c;
+    --muted:#a0a0a0;
+    --text:#f4f4f4;
+    --border:#2b2b2b;
+    --shadow:0 10px 30px rgba(0,0,0,.6);
+
+    --brand:#a8e6a1;
+    --brand-2:#c8f7c0;
+    --accent:#b0d9ff;
+    --radius:12px;
+
+    --sidebar-w:260px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%; margin:0; background:var(--bg); color:var(--text); font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
+  a{color:inherit; text-decoration:none}
+  .app{display:grid; grid-template-columns:var(--sidebar-w) 1fr; grid-template-rows:auto 1fr; min-height:100vh}
+  @media(max-width:980px){ .app{grid-template-columns:1fr} }
+
+  /* topbar */
+  .topbar{
+    grid-column:1/-1;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding:12px 18px; border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg, rgba(255,255,255,.02), transparent); position:sticky; top:0; z-index:60;
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{
+    font-weight:800; letter-spacing:2px; font-size:18px;
+    background:linear-gradient(90deg,#ffb0b0,#ffd9b0,#ffffb0,#b0ffd9,#b0d9ff,#d9b0ff,#ffb0e0);
+    background-size:300% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    animation:scrollGradientX 8s linear infinite;
+  }
+  @keyframes scrollGradientX{0%{background-position:0 0}100%{background-position:300% 0}}
+
+  .top-actions{display:flex;gap:8px;align-items:center}
+  .btn{border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+  .btn-primary{background:linear-gradient(180deg,var(--brand),var(--brand-2)); color:#000}
+  .btn-ghost{background:transparent;color:var(--muted); border:1px solid var(--border)}
+
+  /* sidebar */
+  .sidebar{background:var(--surface); border-right:1px solid var(--border); padding:14px; overflow:auto}
+  .menu-section{margin-bottom:12px}
+  .menu-title{font-size:12px;color:var(--muted);margin:10px 6px}
+  .menu-item{display:flex;gap:10px;align-items:center;padding:10px;border-radius:8px;color:var(--text)}
+  .menu-item:hover{background:rgba(255,255,255,.02)}
+
+  /* content */
+  .content{padding:16px; overflow:auto}
+  .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+  .filter-inline{display:flex; gap:8px; align-items:center}
+  .filter-card{background:var(--card); border:1px solid var(--border); padding:10px; border-radius:10px; display:flex; gap:10px; align-items:center}
+
+  /* results list: single product per line */
+  .results{display:flex; flex-direction:column; gap:10px}
+  .item{
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+    border:1px solid var(--border);
+    padding:12px;
+    border-radius:12px;
+    display:grid;
+    grid-template-columns: 46px 1fr 180px 110px 110px 90px;
+    gap:12px;
+    align-items:center;
+  }
+  @media(max-width:1000px){
+    .item{grid-template-columns: 36px 1fr 120px; grid-auto-rows:auto}
+    .item .mobile-hide{display:none}
+  }
+  .col-check{display:flex;align-items:center;justify-content:center}
+  .col-main{display:flex;flex-direction:column; gap:6px}
+  .prod-title{font-weight:800}
+  .prod-sub{color:var(--muted); font-size:13px}
+  .tag{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(180,220,255,0.05);border:1px solid rgba(100,140,200,0.06);font-size:12px;color:var(--muted)}
+
+  .field-grid{display:flex;gap:8px;flex-wrap:wrap}
+  .small{font-size:13px;color:var(--muted)}
+  .price{font-weight:800;color:var(--brand-2); text-align:right}
+  .cart-col{display:flex;align-items:center;justify-content:center}
+  .cart-btn{background:linear-gradient(180deg,var(--brand),var(--brand-2)); color:#000; border-radius:8px; padding:8px 10px; cursor:pointer}
+
+  .meta-box{background:rgba(255,255,255,0.015); border:1px solid rgba(255,255,255,0.02); padding:8px; border-radius:8px; font-size:13px}
+
+  .muted{color:var(--muted)}
+  .nowrap{white-space:nowrap}
+  input[type="text"], input[type="number"], select { background:transparent; color:var(--text); border:1px solid var(--border); padding:8px; border-radius:8px; outline:0; }
+  label.small { font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <button id="menuBtn" class="btn btn-ghost">☰</button>
+        <div class="logo">[CVV-WRLD]</div>
+        <div class="small muted">Catalog — Detailed List</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="top-actions">
+          <button class="btn btn-primary" id="addFunds">Add Balance</button>
+          <button class="btn btn-ghost">Cart</button>
+        </div>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="menu-section">
+        <div class="menu-title">Main</div>
+        <a class="menu-item" href="#">🏠 Home</a>
+        <a class="menu-item" href="#">🧾 Orders</a>
+        <a class="menu-item" href="#">⭐ Favorites</a>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-title">Filters</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <label class="small muted">Country</label>
+          <select id="filterCountry">
+            <option value="">Any</option><option value="US">US</option><option value="CA">CA</option><option value="GB">GB</option><option value="ES">ES</option><option value="AU">AU</option>
+          </select>
+
+          <label class="small muted">State (below Country)</label>
+          <select id="filterState">
+            <option value="">Any</option>
+            <option value="MO">MO</option>
+            <option value="MS">MS</option>
+            <option value="NC">NC</option>
+            <option value="CA">CA</option>
+            <option value="NY">NY</option>
+            <!-- add other state options as needed -->
+          </select>
+
+          <label class="small muted">Type</label>
+          <select id="filterType">
+            <option value="">Any</option><option value="CREDIT">Credit</option><option value="DEBIT">Debit</option><option value="Service">Service</option>
+          </select>
+
+          <label class="small muted">Price min / max</label>
+          <div style="display:flex;gap:6px">
+            <input id="minPrice" type="number" placeholder="Min" />
+            <input id="maxPrice" type="number" placeholder="Max" />
+          </div>
+
+          <label class="small muted">Bin (partial or full)</label>
+          <input id="filterBin" type="text" placeholder="e.g. 5416 or 541625" />
+
+          <label style="margin-top:8px"><input id="filterTest" type="checkbox" /> <span class="small muted">Test</span></label>
+          <button id="applyFilters" class="btn btn-primary">Apply</button>
+          <button id="clearFilters" class="btn btn-ghost">Clear</button>
+        </div>
+      </div>
+
+      <div style="margin-top:16px" class="menu-section">
+        <div class="menu-title">Account</div>
+        <a class="menu-item" href="#">Billing</a>
+        <a class="menu-item" href="#">Support</a>
+        <a class="menu-item" href="#">Settings</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="controls">
+        <div class="filter-inline">
+          <div class="filter-card"><label class="small muted">View</label><div style="margin-left:8px">Detailed list</div></div>
+          <div class="filter-card"><label class="small muted">Sort</label>
+            <select id="sortBy" style="margin-left:8px">
+              <option value="relevance">Relevance</option>
+              <option value="price-asc">Price ↑</option>
+              <option value="price-desc">Price ↓</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-left:auto" class="small muted">Showing <span id="count">0</span> items</div>
+      </div>
+
+      <div class="results" id="results"></div>
+    </main>
+  </div>
+
+<script>
+/* Sample items — lawful placeholder data fields.
+   Added 'bin' and 'state' fields so filter works as requested. */
+const ITEMS = [
+  { id:'541625', bin:'541625', type:'CREDIT', subtype:'STANDARD', expiry:'06/31', name:'David Leiva', country:'ES', state:'-', fullAddress:true, zip:'12**', extra:'Phone, Email', bank:'Caja', base:'1015', price:38.85, test:false },
+  { id:'483741', bin:'483741', type:'DEBIT', subtype:'CLASSIC', expiry:'09/28', name:'Tom', country:'AU', state:'-', fullAddress:true, zip:'06**', extra:'Phone, Email', bank:'KwikBank', base:'1016', price:38.85, test:true },
+  { id:'476664', bin:'476664', type:'DEBIT', subtype:'ELECTRON', expiry:'03/31', name:'Jordi Garcia', country:'ES', state:'-', fullAddress:true, zip:'08**', extra:'Phone, Email', bank:'CajaBank', base:'1017', price:38.85, test:false },
+  { id:'525363', bin:'525363', type:'CREDIT', subtype:'PLATINUM', expiry:'08/28', name:'Jiayi', country:'US', state:'MO', fullAddress:true, zip:'63**', extra:'Phone', bank:'EuroPay', base:'1018', price:38.85, test:true },
+  { id:'514230', bin:'514230', type:'DEBIT', subtype:'STANDARD', expiry:'02/28', name:'Clifford Conley', country:'US', state:'MS', fullAddress:true, zip:'38**', extra:'Phone', bank:'Woodforest', base:'1019', price:23.10, test:false },
+  { id:'472409', bin:'472409', type:'DEBIT', subtype:'CLASSIC', expiry:'04/29', name:'Yi Hsuan', country:'CA', state:'ON', fullAddress:true, zip:'M5**', extra:'Phone', bank:'N/A', base:'1020', price:33.60, test:false },
+  { id:'377481', bin:'377481', type:'CREDIT', subtype:'N/A', expiry:'03/26', name:'Dawn', country:'US', state:'NC', fullAddress:true, zip:'27**', extra:'Phone', bank:'Macy\'s', base:'1021', price:23.10, test:false },
+  { id:'461755', bin:'461755', type:'CREDIT', subtype:'PLATINUM', expiry:'11/27', name:'Lisa', country:'AU', state:'-', fullAddress:true, zip:'06**', extra:'Phone', bank:'ASB', base:'1022', price:42.00, test:false },
+  // add more items as needed...
+];
+
+const results = document.getElementById('results');
+const countEl = document.getElementById('count');
+
+function renderItem(it){
+  const el = document.createElement('div');
+  el.className = 'item';
+  el.innerHTML = `
+    <div class="col-check"><input type="checkbox" class="rowCheck" data-id="${it.id}" /></div>
+
+    <div class="col-main">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="display:flex;flex-direction:column">
+          <div class="prod-title">${it.name}</div>
+          <div class="prod-sub">ID: ${it.id} • BIN: ${it.bin} • ${it.subtype} • Exp: ${it.expiry}</div>
+        </div>
+        <div style="margin-left:8px"><span class="tag">${it.type}</span> ${it.test?'<span class="tag" style="background:rgba(168,230,161,0.06);border-color:rgba(168,230,161,0.12)">TEST</span>':''}</div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+        <div class="meta-box small">Country: <strong>${it.country}</strong> ${it.state && it.state !== '-' ? '/ ' + it.state : ''}</div>
+        <div class="meta-box small">Full Address: <strong>${it.fullAddress? 'Yes' : 'No'}</strong></div>
+        <div class="meta-box small">ZIP: <strong>${it.zip}</strong></div>
+        <div class="meta-box small">Extras: <strong>${it.extra}</strong></div>
+        <div class="meta-box small">Bank: <strong>${it.bank}</strong></div>
+        <div class="meta-box small">Base: <strong>${it.base}</strong></div>
+      </div>
+    </div>
+
+    <div class="mobile-hide small">${it.subtype}</div>
+    <div class="mobile-hide small">${it.expiry}</div>
+
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+      <div class="price">$${Number(it.price).toFixed(2)}</div>
+      <div class="cart-col"><button class="cart-btn" data-id="${it.id}">Add</button></div>
+    </div>
+  `;
+  return el;
+}
+
+/* Filters now include bin and state */
+function getFilters(){
+  return {
+    country: document.getElementById('filterCountry').value,
+    state: document.getElementById('filterState').value,
+    type: document.getElementById('filterType').value,
+    minPrice: Number(document.getElementById('minPrice').value || 0),
+    maxPrice: Number(document.getElementById('maxPrice').value || Infinity),
+    onlyTest: document.getElementById('filterTest').checked,
+    bin: document.getElementById('filterBin').value.trim(),
+    sort: document.getElementById('sortBy').value
+  };
+}
+
+function applyFilters(){
+  const f = getFilters();
+  let out = ITEMS.filter(it=>{
+    if(f.country && it.country !== f.country) return false;
+    if(f.state && it.state !== f.state) return false;
+    if(f.type && it.type !== f.type) return false;
+    if(it.price < f.minPrice || it.price > f.maxPrice) return false;
+    if(f.onlyTest && !it.test) return false;
+    if(f.bin){
+      // match bin as prefix or anywhere in bin string
+      const b = String(it.bin || '').toLowerCase();
+      if(!b.includes(f.bin.toLowerCase())) return false;
+    }
+    return true;
+  });
+
+  if(f.sort === 'price-asc') out.sort((a,b)=>a.price-b.price);
+  else if(f.sort === 'price-desc') out.sort((a,b)=>b.price-a.price);
+
+  renderList(out);
+}
+
+function renderList(list){
+  results.innerHTML = '';
+  if(list.length === 0){
+    results.innerHTML = '<div class="muted">No items found.</div>';
+  } else {
+    list.forEach(it => results.appendChild(renderItem(it)));
+  }
+  countEl.textContent = list.length;
+}
+
+/* init */
+renderList(ITEMS);
+
+/* events */
+document.getElementById('applyFilters').addEventListener('click', applyFilters);
+document.getElementById('clearFilters').addEventListener('click', ()=>{
+  document.getElementById('filterCountry').value = '';
+  document.getElementById('filterState').value = '';
+  document.getElementById('filterType').value = '';
+  document.getElementById('minPrice').value = '';
+  document.getElementById('maxPrice').value = '';
+  document.getElementById('filterBin').value = '';
+  document.getElementById('filterTest').checked = false;
+  document.getElementById('sortBy').value = 'relevance';
+  renderList(ITEMS);
+});
+
+/* add to cart demo */
+results.addEventListener('click', e => {
+  if(e.target.matches('.cart-btn')){
+    const id = e.target.dataset.id;
+    alert('Added to cart: ' + id + '  (wire to your cart logic)');
+  }
+});
+
+/* menu toggle for small screens */
+document.getElementById('menuBtn').addEventListener('click', ()=>{
+  const sb = document.getElementById('sidebar');
+  if(sb.style.display === 'block' || sb.classList.contains('open')){ sb.classList.remove('open'); sb.style.display='none'; }
+  else{ sb.classList.add('open'); sb.style.display='block'; }
+});
+</script>
+</body>
+</html>

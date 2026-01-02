@@ -192,7 +192,7 @@
 /* Sample items — lawful placeholder data fields.
    Added 'bin' and 'state' fields so filter works as requested. */
 const ITEMS = [
-  { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'06/31', name:'David ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone, Email', bank:'ING BANK (AU)', base:'1015', price:9.99, test:false },
+  { id:'4622', bin:'Unchecked', type:'BESTBUY CREDIT ACCOUNT', subtype:'ACCOUNT', expiry:'08/28', name:'David ****', country:'US', state:'-', fullAddress:true, zip:'-', extra:'Phone, Email', bank:'BEST BUY', base:'1015', price:9.99, test:false },
   { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'09/28', name:'Tom ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone, Email', bank:'ING BANK (AU)', base:'1016', price:9.99, test:false },
   { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'03/31', name:'Jordi ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone, Email', bank:'ING BANK (AU)', base:'1016', price:9.99, test:false },
   { id:'462263', bin:'462263', type:'DEBIT', subtype:'CLASSIC', expiry:'08/28', name:'Jiayi ****', country:'AU', state:'-', fullAddress:true, zip:'-', extra:'Phone', bank:'ING BANK (AU)', base:'1015', price:9.99, test:false },
@@ -216,7 +216,7 @@ function renderItem(it){
       <div style="display:flex;align-items:center;gap:12px">
         <div style="display:flex;flex-direction:column">
           <div class="prod-title">${it.name}</div>
-          <div class="prod-sub">ID: ${it.id} • BIN: ${it.bin} • ${it.subtype} • Exp: ${it.expiry}</div>
+          <div class="prod-sub">ID: ${it.id} • Bal: ${it.bin} • ${it.subtype} • Exp: ${it.expiry}</div>
         </div>
         <div style="margin-left:8px"><span class="tag">${it.type}</span> ${it.test?'<span class="tag" style="background:rgba(168,230,161,0.06);border-color:rgba(168,230,161,0.12)">TEST</span>':''}</div>
       </div>

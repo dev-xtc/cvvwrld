@@ -1,2 +1,0 @@
-# cvvwrld
-cvvwrld login

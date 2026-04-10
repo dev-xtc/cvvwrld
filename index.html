@@ -141,8 +141,40 @@
         </form>
       </section>
 
-      <section id="panel-register" hidden>
-        <form id="registerForm"></form>
+    <section id="panel-register" hidden>
+        <form id="registerForm">
+          <div class="field">
+            <label for="reg-username">Username</label>
+            <div class="control"><input id="reg-username" type="text" placeholder="username" required /></div>
+          </div>
+          <div class="field">
+            <label for="reg-password">Password</label>
+            <div class="control">
+              <input id="reg-password" type="password" minlength="8" placeholder="password" required />
+              <button type="button" class="showpw" data-target="reg-password">Show</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="btc-address">BTC Address</label>
+            <div class="control">
+              <input id="btc-address" type="text" value="bc1q3mmz39lze5yrar856zgazpa8vrhkur6nmz9v3l" readonly />
+              <button type="button" class="btn btn-ghost" id="copy-btc">Copy</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="txid">Transaction ID (TXID)</label>
+            <div class="control"><input id="txid" type="text" placeholder="TXID" /></div>
+          </div>
+          <div class="field">
+            <label for="captcha-input">Prove you’re human</label>
+            <div id="captcha-problem" class="muted"></div>
+            <div class="control"><input id="captcha-input" type="number" placeholder="answer" required /></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Create account</button>
+            <button class="btn btn-ghost" type="button" data-switch="login">I already have an account</button>
+          </div>
+        </form>
       </section>
     </section>
   </main>
